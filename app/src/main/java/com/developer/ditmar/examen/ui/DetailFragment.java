@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 
 import com.developer.ditmar.examen.R;
 
+import java.util.List;
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -31,9 +33,18 @@ public class DetailFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    List<Casa> casas;
+    String str;
+    MyitemRecyclerViewAdapter adp;
 
     public DetailFragment() {
-        // Required empty public constructor
+        @SuppressWarnings("unused")
+        public static DetailFragment newInstance(int columnCount) {
+            DetailFragment fragment = new DetailFragment();
+            Bundle args = new Bundle();
+            args.putInt(ARG_COLUMN_COUNT, columnCount);
+            fragment.setArguments(args);
+            return fragment;
     }
 
     /**
@@ -66,7 +77,7 @@ public class DetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+            View view=inflater.inflate(R.layout.fragment_b, container, false);
         return inflater.inflate(R.layout.fragment_detail, container, false);
     }
 

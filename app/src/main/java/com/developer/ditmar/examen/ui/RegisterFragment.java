@@ -19,7 +19,14 @@ public class RegisterFragment extends Fragment {
 
 
     public RegisterFragment() {
-        // Required empty public constructor
+        @SuppressWarnings("unused")
+        public static RegisterFragment newInstance(int columnCount) {
+            AFragment fragment = new RegisterFragment();
+            Bundle args = new Bundle();
+            args.putInt(ARG_COLUMN_COUNT, columnCount);
+            fragment.setArguments(args);
+            return fragment;
+        }
     }
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,7 +39,7 @@ public class RegisterFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        View view=inflater.inflate(R.layout.fragment_b, container, false);
         return inflater.inflate(R.layout.fragment_register, container, false);
     }
 }

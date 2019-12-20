@@ -33,14 +33,21 @@ public class ListFragment extends Fragment {
 
     private View root;
     public ListFragment() {
-        // Required empty public constructor
+        @SuppressWarnings("unused")
+        public static ListFragment newInstance(int columnCount) {
+            ListFragment fragment = new ListFragment();
+            Bundle args = new Bundle();
+            args.putInt(ARG_COLUMN_COUNT, columnCount);
+            fragment.setArguments(args);
+            return fragment;
+
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        View view=inflater.inflate(R.layout.fragment_b, container, false);
         root = inflater.inflate(R.layout.fragment_list, container, false);
         return root;
     }
